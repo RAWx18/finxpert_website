@@ -57,7 +57,7 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-finxpert-400 mt-1 flex-shrink-0" />
                 <div>
-                  104, Akash Complex, Near Municipal Market<br />
+                  104-106, Akash Complex, Near Municipal Market<br />
                   Behind Citi Bank, C.G.Road, Navrangpura<br />
                   Ahmedabad, Gujarat - 380009
                 </div>

@@ -105,7 +105,7 @@ const AboutSection = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Our Location</h4>
                     <p className="text-gray-600 text-sm">
-                      104, Akash Complex, Near Municipal Market<br />
+                      104-106, Akash Complex, Near Municipal Market<br />
                       Behind Citi Bank, C.G.Road, Navrangpura<br />
                       Ahmedabad, Gujarat - 380009
                     </p>
