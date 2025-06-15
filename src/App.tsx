@@ -1,27 +1,53 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import ServicesSection from "./components/ServicesSection";
+import AboutSection from "./components/AboutSection";
+import PamphletsGallery from "./components/PamphletsGallery";
+import IndiaFinanceNews from "./components/IndiaFinanceNews";
+import BankLogos from "./components/BankLogos";
+import EMICalculator from "./components/EMICalculator";
+import ShareMemories from "./components/ShareMemories";
+import Footer from "./components/Footer";
+import FounderVideo from "./components/FounderVideo";
 
-const queryClient = new QueryClient();
+function App() {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with the fade-in class
+    const elementsToAnimate = document.querySelectorAll('.fade-in-element');
+    elementsToAnimate.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <FounderVideo />
+      <ServicesSection />
+      <AboutSection />
+      <BankLogos />
+      <EMICalculator />
+      <PamphletsGallery />
+      <ShareMemories />
+      <IndiaFinanceNews />
+      <Footer />
+    </div>
+  );
+}
 
 export default App;

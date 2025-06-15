@@ -83,6 +83,7 @@ const Navbar = () => {
           </a>
           <a href="#services" className="nav-link">Services</a>
           <a href="#about" className="nav-link">About</a>
+          <a href="#emi-calculator" className="nav-link">EMI Calculator</a>
           <a href="#contact" className="nav-link">Contact</a>
         </nav>
 
